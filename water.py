@@ -1,6 +1,6 @@
 import itchat
 import  time
-
+import random
 import schedule
 
 
@@ -8,22 +8,17 @@ itchat.auto_login(True)
 
 
 class TestClass(object):
-    val1 = 3
-    val2 = 5
-    val3 = 2
-    val4 = 1
-
-
+    val2 = "记得喝水![拥抱]"
+    val3 = "赵日天，快去喝水![拥抱]"
+    val4 = "宝宝，快去喝水吧![拥抱]"
+    val5 = "亲爱的，快去喝水吧![拥抱]"
+    val6 = "小荷学姐，快去喝水吧![拥抱]"
+    dict = {1: val2, 2: val3, 3:val4,4:val5, 5:val6}
     @classmethod
     def job(self):
         author = itchat.search_friends(name='赵子荷')[0]
-        if self.val1%3 == 0:
-            hug="[拥抱]"*self.val2
-        elif self.val1%3 == 1:
-            hug="[拥抱]"*self.val3
-        else:
-            hug="[拥抱]"*self.val4
-        author.send('记得喝水! '+hug)
+        x=random.randint(1,5)
+        author.send(self.dict[x])
         self.val1+=1
 
 
