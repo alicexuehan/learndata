@@ -27,10 +27,10 @@ class TestClass(object):
 
 
 schedule.every(30).minutes.do(TestClass.job)
-schedule.every().wednesday.at("21:00").do(TestClass.punchClock)
 schedule.every().monday.at("21:00").do(TestClass.punchClock)
 schedule.every().tuesday.at("20:00").do(TestClass.punchClock)
-schedule.every().thursday.at("20:00").do(TestClass.punchClock)
+schedule.every().wednesday.at("20:00").do(TestClass.punchClock)
+schedule.every().thursday.at("21:00").do(TestClass.punchClock)
 schedule.every().friday.at("20:00").do(TestClass.punchClock)
 i=0
 while True:
