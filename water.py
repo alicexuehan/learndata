@@ -19,14 +19,22 @@ class TestClass(object):
         author = itchat.search_friends(name='赵子荷')[0]
         x=random.randint(1,5)
         author.send(self.dict[x])
-        self.val1+=1
+    @classmethod
+    def punchClock(self):
+        author = itchat.search_friends(name='赵子荷')[0]
+        author.send("子荷，工作一整天，辛苦了。快去打卡吧。")
 
 
 
-schedule.every(3).seconds.do(TestClass.job)
+schedule.every(30).minutes.do(TestClass.job)
+schedule.every().wednesday.at("21:00").do(TestClass.punchClock)
+schedule.every().monday.at("21:00").do(TestClass.punchClock)
+schedule.every().tuesday.at("20:00").do(TestClass.punchClock)
+schedule.every().thursday.at("20:00").do(TestClass.punchClock)
+schedule.every().friday.at("20:00").do(TestClass.punchClock)
 i=0
 while True:
     schedule.run_pending()
     time.sleep(1)
-    # print(i)
+    print(i)
     i+=1
